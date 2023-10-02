@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import.meta.env.VITE_API_URL
 
 const History = () => {
     const [historyData, setHistoryData] = useState([]);
@@ -20,7 +21,7 @@ const History = () => {
                     'Authorization': `Bearer ${token}`,
                 };
                 // Send a POST request to the API
-                const response = await axios.post('http://localhost:5000/api/fetchData', {email},{headers});
+                const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/fetchData`, {email},{headers});
 
                 // Set the data received from the API
                 setHistoryData(response.data);

@@ -42,9 +42,6 @@ function App() {
           <Route exact path="/image-search" element={<Image/>} />
           <Route exact path="/image-search/text" element={<ImageSearch/>} />
           <Route exact path="/image-search/img" element={<ImageRecognition/>} />
-          {/* <Route exact path="/self_help_blogs" element={<SelfHelpBlogs />} />
-          <Route exact path="/self_help_videos" element={<SelfHelpVideos />} />
-          <Route exact path="/self_help_podcast" element={<SelfHelpPodcast />} /> */}
         </Route>
       </Routes>
     </div>

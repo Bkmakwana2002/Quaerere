@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import.meta.env.VITE_API_URL
 
 function SearchImg({ keywords,type }) {
     const [response, setResponse] = useState(null);
@@ -27,7 +28,7 @@ function SearchImg({ keywords,type }) {
                 'Authorization': `Bearer ${accessToken}`,
             };
 
-            const response = await axios.post('http://localhost:5000/api/search', { request_body }, { headers });
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/search`, { request_body }, { headers });
 
             setResponse(response.data);
             console.log('Curl request successfully sent:', response.data);
@@ -77,7 +78,7 @@ function SearchImg({ keywords,type }) {
                 'Authorization': `Bearer ${accessToken}`,
             };
 
-            const response = await axios.post('http://localhost:5000/api/fetch-Content', requestBody,{headers});
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/fetch-Content`, requestBody,{headers});
             console.log(response.data.contents[0].extract)
             setModalData(response.data.contents[0].extract);
         } catch (error) {
@@ -104,7 +105,7 @@ function SearchImg({ keywords,type }) {
                 toSave,
                 item,
             };
-            const data = await axios.post('http://localhost:5000/api/saveData', requestBody, { headers });
+            const data = await axios.post(`${import.meta.env.VITE_API_URL}/api/saveData`, requestBody, { headers });
             // You can optionally handle success here or update the UI
             alert("Item saved")
             console.log(data)

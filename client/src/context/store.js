@@ -1,12 +1,13 @@
 import { create } from 'zustand'
 import axios from 'axios'
+import.meta.env.VITE_API_URL
 
 const useAuthStore = create((set) => ({
     user: null,
     isAuthenticated: localStorage.getItem('user') ? true : false,
     login: async(userData) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/login', userData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, userData);
       
             const user = response.data; 
             console.log('api',user)
@@ -21,7 +22,7 @@ const useAuthStore = create((set) => ({
     register: async(userData) => { 
         try {
             // Make a POST request to the registration API
-            const response = await axios.post('http://localhost:5000/api/register', userData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/register`, userData);
       
             // Assuming the response contains the user data, update the store
             const newUser = response.data; // Modify this based on your API response structure

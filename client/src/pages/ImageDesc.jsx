@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import * as mobilenet from '@tensorflow-models/mobilenet';
-import Search from './Search';
 import SearchImg from './SearchImage';
 
 const ImageRecognition = () => {
